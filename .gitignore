@@ -1,0 +1,17 @@
+# .gitignore file
+
+# Dependencies
+/node_modules
+
+# Playwright artifacts
+/playwright-report/
+/test-results/
+/playwright/.auth/
+
+# Environment variables (add this line!)
+.env
+
+# Playwright
+node_modules/
+/blob-report/
+/playwright/.cache/
