@@ -41,7 +41,7 @@ test('should perform a full end-to-end data verification of the invoice', async 
   const invoiceDateInput = page.locator('lt-date[prompt="Invoice date"] .dx-texteditor-input');
   await expect.soft(invoiceDateInput, 'Invoice date should be correct').toHaveValue('11/08/2025');
 
-  const poNumberInput = page.locator('lt-text[prompt="P/O no."] .dx-texteditor-input');
+  const poNumberInput = page.locator('lt-text').filter({ hasText: 'P/O no. *' }).getByRole('textbox');
   await expect.soft(poNumberInput, 'P/O number should be correct').toHaveValue('372');
 
   // --- Amount Section ---
@@ -51,13 +51,13 @@ test('should perform a full end-to-end data verification of the invoice', async 
   await amountHeader.scrollIntoViewIfNeeded(); // Scroll down to ensure it's visible
 
   const subtotalInput = page.locator('lt-money[prompt="Subtotal"] .dx-texteditor-input');
-  await expect.soft(subtotalInput, "Subtotal should be correct").toHaveValue('$161.98');
+  await expect.soft(subtotalInput, "Subtotal should be correct").toHaveValue('161.98');
 
   const taxInput = page.locator('lt-money[prompt="Tax"] .dx-texteditor-input');
-  await expect.soft(taxInput, "Tax should be correct").toHaveValue('$16.20');
+  await expect.soft(taxInput, "Tax should be correct").toHaveValue('16.20');
   
   const totalInput = page.locator('lt-money[prompt="Total"] .dx-texteditor-input');
-  await expect.soft(totalInput, "Total should be correct").toHaveValue('$178.18');
+  await expect.soft(totalInput, "Total should be correct").toHaveValue('178.18');
 
   // --- Invoice Lines Section ---
   const invoiceLinesHeader = page.locator('mat-expansion-panel-header', { hasText: 'Invoice Lines' });
