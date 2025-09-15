@@ -29,8 +29,8 @@ Follow these steps to get the project set up on your local machine.
 First, clone this repository to your local machine using Git.
 
 ```bash
-git clone <your-repository-url>
-cd <repository-folder-name>
+git clone https://github.com/christestrun/Autamigo
+cd Autamigo
 ```
 
 ### 2. Configure Environment Variables
